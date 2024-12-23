@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Dana"; /* 400 */
+        src: url("../fonts/Dana/woff2/Dana-FaNum-Regular.woff2") format("woff2");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Dana Medium"; /* 500 */
+        src: url("../fonts/Dana/woff2/Dana-FaNum-Medium.woff2") format("woff2");
+        font-display: swap;
+    } 
+    @font-face {
+        font-family: "Dana DemiBold"; /* 600 */
+        src: url("../fonts/Dana/woff2/Dana-FaNum-DemiBold.woff2") format("woff2");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Morabba Light";
+        src: local("Morabba Light"), url("../fonts/Morabba/woff2/Morabba-Light.woff2") format("woff2");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Morabba Medium";
+        src: local("Morabba Medium"), url("../fonts/Morabba/woff2/Morabba-Medium.woff2") format("truetype");
+        font-display: swap;;
+    } 
+    @font-face {
+        font-family: "Morabba Bold";
+        src: local("Morabba Bold"), url("../fonts/Morabba/woff2/Morabba-Bold.woff2") format("woff2");
+        font-display: swap;;
+    }
+    body{
+        background-image: url("../images/headerBgDesktop.webp");
+        background-repeat: no-repeat;
+    }
+
+}
+
+@layer components {
+
+    .submenu {
+        @apply hidden flex-col gap-y-3 pr-7 mt-3 text-sm text-zinc-600 dark:text-white !important;
+    }
+    .submenu--open {
+        @apply flex !important;
+    }
+
+    .submenu__item--active {
+        @apply relative text-orange-300 pr-2.5;
+    }
+    .submenu__item--active::after {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -ms-border-radius: 100%;
+        -o-border-radius: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        background-color: currentColor;
+        /* #FDBA74 */
+    }
+    .overlay {
+        @apply md:hidden invisible opacity-0 fixed inset-0 size-full bg-black/40 z-10;
+    }
+    .overlay--visible {
+        @apply visible opacity-100;
+    }
+    
+}
